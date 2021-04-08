@@ -29,9 +29,9 @@ Discord opsiyonel detaylı hava durumu botu
 # Örnek Görseller
 
 
-![Ankara Hava Durumu](https://github.com/Deja-Vu1/WeatherBot/Img/Ankaraörn.png)
+![Ankara Hava Durumu](https://github.com/Deja-Vu1/WeatherBot/blob/main/Img/Ankaraörn.png)
 
-![Hata Durumu](https://github.com/Deja-Vu1/WeatherBot/Img/error.png)
+![Hata Durumu](https://github.com/Deja-Vu1/WeatherBot/blob/main/Img/error.png)
 
 
 # Meraklısına
@@ -46,16 +46,16 @@ Discord opsiyonel detaylı hava durumu botu
 ---
 
 ## Projeye Yıldız ekleme 🌟
-![Projeye Yıldız ekleme 🌟](ttps://github.com/Deja-Vu1/WeatherBot/Img/yildiz.gif)
+![Projeye Yıldız ekleme 🌟](ttps://github.com/Deja-Vu1/WeatherBot/blob/main/Img/yildiz.gif)
 
 ---
 ### Hatalı komut çalıştırma durumunda
 
-![Error Resmi](https://github.com/Deja-Vu1/WeatherBot/Img/error.png)
+![Error Resmi](https://github.com/Deja-Vu1/WeatherBot/blob/main/Img/error.png)
 
 ### Örnek komut resmi
 
-![Komut Resmi](https://github.com/Deja-Vu1/WeatherBot/Img/Ankaraörn.png)
+![Komut Resmi](https://github.com/Deja-Vu1/WeatherBot/blob/main/Img/Ankaraörn.png)
 
 ---
 
@@ -64,9 +64,9 @@ Discord opsiyonel detaylı hava durumu botu
 
 
 1. Adım
-![s1](https://github.com/Deja-Vu1/WeatherBot/Img/add2server/s1.png)
+![s1](https://github.com/Deja-Vu1/WeatherBot/blob/main/Img/add2server/s1.png)
 2. Adım
-![s2](https://github.com/Deja-Vu1/WeatherBot/Img/add2server/s2.png)
+![s2](https://github.com/Deja-Vu1/WeatherBot/blob/main/Img/add2server/s2.png)
 3. Adım
-![s3](https://github.com/Deja-Vu1/WeatherBot/Img/add2server/s1.png)
+![s3](https://github.com/Deja-Vu1/WeatherBot/blob/main/Img/add2server/s1.png)
 > 3. adımdaki hiçbir yetkiyi devre dışı bırakmamanız çok önemlidir !

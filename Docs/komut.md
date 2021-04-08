@@ -6,10 +6,10 @@
 ---
 ### Hatalı komut çalıştırma durumunda
 
-![Error Resmi](https://github.com/Deja-Vu1/WeatherBot/Img/error.png)
+![Error Resmi](https://github.com/Deja-Vu1/WeatherBot/blob/main/Img/error.png)
 
 ### Örnek komut resmi
 
-![Komut Resmi](https://github.com/Deja-Vu1/WeatherBot/Img/Ankaraörn.png)
+![Komut Resmi](https://github.com/Deja-Vu1/WeatherBot/blob/main/Img/Ankaraörn.png)
 
 ---
