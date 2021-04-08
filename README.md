@@ -4,7 +4,7 @@ Discord opsiyonel detaylı hava durumu botu
 
 
 ``` 
-     geçen Perşembe ──► geçen Çarşamba      
+     önümüzdeki Perşembe ──► önümüzdeki Çarşamba      
 ┌─────────┐┌─────────┐┌─────────┐┌─────────┐
 │ Perşembe││   Cuma  ││Cumartesi││  Pazar  │
 ├─────────┤├─────────┤├─────────┤├─────────┤
@@ -22,7 +22,7 @@ Discord opsiyonel detaylı hava durumu botu
      │Nem:   97││Nem:   75││Nem:   49│
      └─────────┘└─────────┘└─────────┘
 ```
-> `Son 7 gün hava durumu`
+> `önümüzdeki 7 günlük hava durumu tahminleri`
 
 ---
 
@@ -36,17 +36,21 @@ Discord opsiyonel detaylı hava durumu botu
 |Python ile bot yazmak|[Tıkla !](https://discordpy.readthedocs.io/en/stable/)||
 
 
----
+***
+
+## Örnek Çıktı
+![Projeye Yıldız ekleme 🌟](https://github.com/Deja-Vu1/WeatherBot/blob/main/Img/discordcikti.gif)
+
 
 ## Projeye Yıldız ekleme 🌟
 ![Projeye Yıldız ekleme 🌟](https://github.com/Deja-Vu1/WeatherBot/blob/main/Img/yildiz.gif)
 
----
+*****
 ### Hatalı komut çalıştırma durumunda
 <img src="https://github.com/Deja-Vu1/WeatherBot/blob/main/Img/error.png" width="500" height="auto">
 
 
-### Örnek komut resmi
+### Örnek komut
 <img src="https://github.com/Deja-Vu1/WeatherBot/blob/main/Img/Ankaraörn.png" width="500" height="auto">
 
 ---
