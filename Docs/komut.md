@@ -5,11 +5,11 @@
 
 ---
 ### Hatalı komut çalıştırma durumunda
+<img src="https://github.com/Deja-Vu1/WeatherBot/blob/main/Img/error.png" width="500" height="auto">
 
-![Error Resmi](https://github.com/Deja-Vu1/WeatherBot/blob/main/Img/error.png)
 
 ### Örnek komut resmi
+<img src="https://github.com/Deja-Vu1/WeatherBot/blob/main/Img/Ankaraörn.png" width="500" height="auto">
 
-![Komut Resmi](https://github.com/Deja-Vu1/WeatherBot/blob/main/Img/Ankaraörn.png)
 
 ---
