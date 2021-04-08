@@ -9,7 +9,9 @@
 
 
 ### Örnek komut resmi
-<img src="https://github.com/Deja-Vu1/WeatherBot/blob/main/Img/Ankaraörn.png" width="500" height="auto">
+* <img src="https://github.com/Deja-Vu1/WeatherBot/blob/main/Img/Ankaraörn.png" width="500" height="auto">
+
+* <img src="https://github.com/Deja-Vu1/WeatherBot/blob/main/Img/Ankaraörn2.png" width="500" height="auto">
 
 
 ---
