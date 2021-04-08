@@ -31,8 +31,8 @@ Discord opsiyonel detaylı hava durumu botu
 
 |Olay|Detaylı Bilgi|Örnek Resimler|Ekleme Linki|
 |----|----|----|----|
-|Sunucuya Ekleme|[Tıkla !](https://github.com/Deja-Vu1/WeatherBot/Docs/add2server.md)|[Tıkla !](https://github.com/Deja-Vu1/WeatherBot/Img/add2server)|[Tıkla !](https://discord.com/api/oauth2/authorize?client_id=829685204641513532&permissions=93184&scope=bot)|
-|Komut Kullanımı|[Tıkla !](https://github.com/Deja-Vu1/WeatherBot/Docs/komut.md)|[Tıkla !](https://github.com/Deja-Vu1/WeatherBot/Img/discordkomut.mp4)|
+|Sunucuya Ekleme|[Tıkla !](https://github.com/Deja-Vu1/WeatherBot/blob/main/Docs/add2server.md)|[Tıkla !](https://github.com/Deja-Vu1/WeatherBot/blob/main/Img/add2server)|[Tıkla !](https://discord.com/api/oauth2/authorize?client_id=829685204641513532&permissions=93184&scope=bot)|
+|Komut Kullanımı|[Tıkla !](https://github.com/Deja-Vu1/WeatherBot/blob/main/Docs/komut.md)|[Tıkla !](https://github.com/Deja-Vu1/WeatherBot/blob/main/Img/discordkomut.mp4)|
 |Python ile bot yazmak|[Tıkla !](https://discordpy.readthedocs.io/en/stable/)||
 
 
