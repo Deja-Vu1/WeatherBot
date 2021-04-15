@@ -3,3 +3,4 @@ DateTime==4.3
 asyncio==3.4.3
 requests==2.25.1
 pytz==2021.1
+discord-ext-menus==1.0
