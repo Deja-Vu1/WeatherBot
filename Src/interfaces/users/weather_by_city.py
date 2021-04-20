@@ -5,7 +5,7 @@ from interfaces.methods.multi_pages import multi
 import requests
 import json
 from discord.ext import menus
-footext = "Developed by bis ❤️ "
+
 
 
 def user_interface(bot,dictofdays):
@@ -13,7 +13,7 @@ def user_interface(bot,dictofdays):
     @bot.command()
     async def weather(ctx,*args):
 
-        global footext
+        footext = "Developed by bis ❤️ "
         name=" "
         name = name.join(args)
         
@@ -42,14 +42,15 @@ def user_interface(bot,dictofdays):
             dmax = a["list"][0]["main"]["temp_max"] - 273.15
             press = a["list"][0]["main"]["pressure"]
             hum = a["list"][0]["main"]["humidity"]
+            url = "https://openweathermap.org/city/" + str(a['list'][0]['id'])
             if a["list"][0]["rain"] != None:footext+=" 🌧"
             if a["list"][0]["snow"] != None:footext+=" ❄️"
 
             
-            embed = discord.Embed(title=name.upper(), colour=discord.Colour(0x9beec), url="https://discordapp.com")
+            embed = discord.Embed(title=name.upper(), colour=discord.Colour(0x9beec), url=url)
 
             embed.set_thumbnail(url=f'http://openweathermap.org/img/wn/{a["list"][0]["weather"][0]["icon"]}.png')
-            embed.set_author(name=ctx.author.name, url="https://discordapp.com", icon_url=ctx.author.avatar_url)
+            embed.set_author(name=ctx.author.name, url=url, icon_url=ctx.author.avatar_url)
             embed.set_footer(text=footext+" • bugün saat "+str(now_turkey.hour)+":"+str(now_turkey.minute), icon_url="https://cdn.discordapp.com/avatars/596455467585110016/b96ac044a4382f62ad36637c6021ef80.png?size=256")
 
             embed.add_field(name=f"🌸 Hava Durumu : **{arr}**", value=f"Açıklama : **{des}**",inline=True)
@@ -58,10 +59,10 @@ def user_interface(bot,dictofdays):
             embed.add_field(name=f"💨 Basınç : **{press}**hPa", value="‎",inline=True)
             embed.add_field(name=f"Nem : **{round(hum, 5)}**%", value="‎‎", inline=True)
 
-            embed2 = discord.Embed(title=name.upper(), colour=discord.Colour(0x9beec), url="https://discordapp.com") 
+            embed2 = discord.Embed(title=name.upper(), colour=discord.Colour(0x9beec), url=url) 
 
             embed2.set_thumbnail(url=f'http://openweathermap.org/img/wn/{a["list"][0]["weather"][0]["icon"]}.png')
-            embed2.set_author(name=ctx.author.name, url="https://discordapp.com", icon_url=ctx.author.avatar_url)
+            embed2.set_author(name=ctx.author.name, url=url, icon_url=ctx.author.avatar_url)
             embed2.set_footer(text=footext+" • bugün saat "+str(now_turkey.hour)+":"+str(now_turkey.minute), icon_url="https://cdn.discordapp.com/avatars/596455467585110016/b96ac044a4382f62ad36637c6021ef80.png?size=256")
 
             daily=""

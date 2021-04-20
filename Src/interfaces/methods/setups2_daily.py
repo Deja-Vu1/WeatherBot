@@ -11,26 +11,32 @@ def sets(bot,weekly):
     async def resetup(ctx,*args):
         if ctx.message.author.guild_permissions.administrator:
             name=" "
+            flag2=0
             name = name.join(args)
             if not name.islower():
                 await ctx.send("en iyi kullanım için bütün karakterleri küçük yazarak giriş yapın", delete_after=5)
             else:
                 guild_id = str(ctx.guild.id)
                 if not guild_id in weekly.keys():
-                    await ctx.send("Bu sunucuya ait kayıtlı bilgi yok",delete_after=5)
+                    await refailed(ctx)
                     await ctx.message.delete()
                     
                 else:
+                    if name in weekly[guild_id].keys():
+                        for i in weekly[guild_id][name]:
+                            if i[0] == ctx.message.channel.id:
+                                flag2=1
+                                author = i[1]
                     if not name in weekly[guild_id].keys():
-                        await ctx.send("Bu şehre ait kayıtlı bilgi yok",delete_after=5)
+                        await refailed(ctx)
                         await ctx.message.delete()
-                    elif [ctx.message.channel.id,ctx.message.author.id] in weekly[guild_id][name]:
-                        weekly[guild_id][name].remove([ctx.message.channel.id,ctx.message.author.id])
+                    elif flag2==1:
+                        weekly[guild_id][name].remove([ctx.message.channel.id,author])
                         weekly[guild_id]["ZmxhZw=="] -= 1
-                        await ctx.send("Kayıtlı bilginiz başarıyla SİLİNDİ",delete_after=5)
+                        await recompleted(ctx,author)
                         await ctx.message.delete()
                     else:
-                        await ctx.send("Bu şehre ait kayıtlı bilgi yok",delete_after=5)
+                        await refailed(ctx)
                         await ctx.message.delete()
                 with open('hello.json', 'w') as outfile:
                         json.dump(weekly, outfile)
@@ -40,13 +46,14 @@ def sets(bot,weekly):
     @bot.command()
     async def setup(ctx,*args):
         if ctx.message.author.guild_permissions.administrator:
+            author = ""
             name=" "
             name = name.join(args)
             if not name.islower():
                 await ctx.send("en iyi kullanım için bütün karakterleri küçük yazarak giriş yapın", delete_after=5)
             else:
                 flag = 0
-
+                flag2 = 0
                 if flag ==0:
 
                     a = requests.post(f"https://openweathermap.org/data/2.5/find?q={name}&appid=439d4b804bc8187953eb36d2a8c26a02&units=metric")
@@ -58,24 +65,29 @@ def sets(bot,weekly):
                     guild_id = str(ctx.guild.id)
                     if not guild_id in weekly.keys():
                         weekly[guild_id] = {"ZmxhZw==":1,name:[[ctx.channel.id,ctx.author.id]]}
-                        await ctx.send("başarıyla oluşturuldu!")
+                        await completed(ctx)
                         await oops_log2(bot,ctx.channel,ctx.author,ctx.guild,name)
                         for_log(guild_id,ctx.message.author,ctx.message.channel.name,name)
                         
                     else:
                         if weekly[guild_id]["ZmxhZw=="] != 3:
+                            for i in weekly[guild_id][name]:
+                                if i[0] == ctx.message.channel.id:
+                                    flag2=1
+                                    author = i[1]
                             if not name in weekly[guild_id].keys():
                                 weekly[guild_id][name] = [[ctx.channel.id,ctx.author.id]]
                                 weekly[guild_id]["ZmxhZw=="] += 1
-                                await ctx.send("Başarıyla oluşturuldu")
+                                await completed(ctx)
                                 for_log(guild_id,ctx.message.author,ctx.message.channel.name,name)
-                            elif [ctx.message.channel.id,ctx.message.author.id] in weekly[guild_id][name]:
-                                await ctx.send("Bu istek önceden gerçekleştirilmiş",delete_after=5)
+
+                            elif flag2 == 1:
+                                await failed(ctx,author)
                                 await ctx.message.delete()
                             else:
                                 weekly[guild_id][name].append([ctx.channel.id,ctx.author.id])
                                 weekly[guild_id]["ZmxhZw=="] += 1
-                                await ctx.send("başarıyla oluşturuldu!")
+                                await completed(ctx)
                                 await oops_log2(bot,ctx.channel,ctx.author,ctx.guild,name)
                                 for_log(guild_id,ctx.message.author,ctx.message.channel.name,name)
                         else:
@@ -96,6 +108,54 @@ def sets(bot,weekly):
                     await ctx.message.delete()
         else:
             await ctx.send("Bu komudu kullanmaya yetkiniz yok !")
+
+
+    async def failed(ctx,author):
+        embed = discord.Embed(title="Bu istek öneceden gerçekleştirilmiş", colour=discord.Colour(0x72130f), description="Eğer bu işte bir hata olduğunu düşünüyorsanız [server](https://discord.com/invite/2wknBWEQWS)'ımızdaki developerlarımızla iletişime geçebilirsiniz")
+
+        embed.set_thumbnail(url="https://www.zambo.in/assets/quize/wrongs.gif")
+        embed.set_author(name=ctx.message.author, icon_url=ctx.author.avatar_url)
+        try:
+            b = ctx.message.channel
+            d = await bot.fetch_user(author)
+            embed.add_field(name=":pencil2:", value=d, inline=True)
+            embed.add_field(name=":mega:", value=b, inline=True)
+        except:
+            pass
+        
+        await ctx.send(embed=embed)
+
+    async def completed(ctx):
+        embed = discord.Embed(title="Başarıyla Oluşturuldu", colour=discord.Colour(0x68ad5c), description="Eğer bu işte bir hata olduğunu düşünüyorsanız [server](https://discord.com/invite/2wknBWEQWS)'ımızdaki developerlarımızla iletişime geçebilirsiniz")
+
+        embed.set_thumbnail(url="https://www.buyhosting.xyz/frankyvision/images/done.gif")
+        embed.set_author(name=ctx.message.author, icon_url=ctx.author.avatar_url)
+        b = ctx.message.channel
+        d = ctx.message.author
+        embed.add_field(name=":pencil2:", value=d, inline=True)
+        embed.add_field(name=":mega:", value=b, inline=True)
+     
+        await ctx.send(embed=embed)
+    
+    async def recompleted(ctx,author):
+        embed = discord.Embed(title="Kayıtlı aktiviteniz başarıyla silindi", colour=discord.Colour(0x72130f), description="Eğer bu işte bir hata olduğunu düşünüyorsanız [server](https://discord.com/invite/2wknBWEQWS)'ımızdaki developerlarımızla iletişime geçebilirsiniz")
+
+        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/750685247489835089/834095429347049492/delete-animation.gif")
+        embed.set_author(name=ctx.message.author, icon_url=ctx.author.avatar_url)
+        b = ctx.message.channel
+        d = await bot.fetch_user(author)
+        embed.add_field(name=":pencil2:", value=d, inline=True)
+        embed.add_field(name=":mega:", value=b, inline=True)
+     
+        await ctx.send(embed=embed)
+
+    async def refailed(ctx):
+        embed = discord.Embed(title="Bu şehre ait kayıtlı bilgi yok", colour=discord.Colour(0x72130f), description="Eğer bu işte bir hata olduğunu düşünüyorsanız [server](https://discord.com/invite/2wknBWEQWS)'ımızdaki developerlarımızla iletişime geçebilirsiniz")
+
+        embed.set_thumbnail(url="https://www.zambo.in/assets/quize/wrongs.gif")
+        embed.set_author(name=ctx.message.author, icon_url=ctx.author.avatar_url)
+        
+        await ctx.send(embed=embed)
 
     def for_log(gid,user,channel,name):
         trtime = get()

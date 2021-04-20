@@ -18,6 +18,7 @@ import os
 
 # self methods
 from interfaces.admin.review_json import supervision
+from interfaces.admin.change_content import security
 from interfaces.users.weather_by_city import user_interface
 from interfaces.users.help_us import help_us
 from interfaces.methods.daily import daily_control
@@ -39,6 +40,7 @@ sets(bot,weekly)
 user_interface(bot,dictofdays)
 help_us(bot)
 supervision(bot,weekly)
+security(bot,weekly)
 
 @bot.event
 async def on_ready():                                                                                      
