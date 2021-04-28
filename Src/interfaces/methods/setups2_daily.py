@@ -167,4 +167,8 @@ def sets(bot,weekly):
             minute = "0"+ str(trtime.minute)
         else:
             minute = trtime.minute
-        print(f"[{trtime.hour}:{minute}:{trtime.second}  {trtime.day}/{trtime.month}/{trtime.year}] {user} created oto message protocol #{channel} city: {name} guild: {gid}")
+        if len(str(trtime.second)) == 1:
+            second = "0"+ str(trtime.second)
+        else:
+            second = trtime.second
+        print(f"[{trtime.hour}:{minute}:{second}  {trtime.day}/{trtime.month}/{trtime.year}] {user} created oto message protocol #{channel} city: {name} guild: {gid}")
