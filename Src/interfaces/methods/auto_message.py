@@ -26,12 +26,16 @@ async def secret(name,channel,author_name,author_url):
     if a["list"][0]["snow"] != None:footext+=" ❄️"
 
     now_turkey = get()
+    if len(str(now_turkey.minute)) == 1:
+            minute = "0"+ str(now_turkey.minute)
+    else:
+        minute = now_turkey.minute
 
     embed = discord.Embed(title=name.upper(), colour=discord.Colour(0x9beec), url="https://discordapp.com")
 
     embed.set_thumbnail(url=f'http://openweathermap.org/img/wn/{a["list"][0]["weather"][0]["icon"]}.png')
     embed.set_author(name=author_name, url="https://discordapp.com", icon_url=author_url)
-    embed.set_footer(text="Bu mesaj BIS❤️ ailesi tarafından otomatik olarak atılmıştır•bugün saat "+str(now_turkey.hour)+":"+str(now_turkey.minute), icon_url="https://cdn.discordapp.com/avatars/596455467585110016/b96ac044a4382f62ad36637c6021ef80.png?size=256")
+    embed.set_footer(text="Bu mesaj BIS❤️ ailesi tarafından otomatik olarak atılmıştır•bugün saat "+str(now_turkey.hour)+":"+str(minute), icon_url="https://cdn.discordapp.com/avatars/596455467585110016/b96ac044a4382f62ad36637c6021ef80.png?size=256")
 
     embed.add_field(name=f"🌸 Hava Durumu : **{arr}**", value=f"Açıklama : **{des}**",inline=True)
     embed.add_field(name=f"🌡️ Sıcaklık : **{round(deg, 5)}**°C", value=f"\t🔺max: **{round(dmax, 5)}**°C\n🔻min: **{round(dmin, 5)}**°C", inline=True)

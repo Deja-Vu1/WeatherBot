@@ -92,11 +92,15 @@ def sets(bot,weekly):
                                 for_log(guild_id,ctx.message.author,ctx.message.channel.name,name)
                         else:
                             now_turkey = get()
+                            if len(str(now_turkey.minute)) == 1:
+                                minute = "0"+ str(now_turkey.minute)
+                            else:
+                                minute = now_turkey.minute
                             embed = discord.Embed(title="PREMİUM", colour=discord.Colour(0xA3FFA9))
                             embed.add_field(name="Sunucu limiti‎", value="Özel ayrıcalığa sahip olmadığınız sürece sunucu başına 3 otomatik mesaj oluşturma hakkınız olur", inline=True)
                             embed.add_field(name="‎", value="||‎|| [İLETİŞİME GEÇ !](https://deja-vu1.github.io/) | [Sunucuya ekle](https://discord.com/oauth2/authorize?client_id=829685204641513532&permissions=93184&scope=bot) | [Oy ver](https://top.gg/bot/829685204641513532)", inline=True)
                             embed.set_image(url="https://raw.githubusercontent.com/Deja-Vu1/WeatherBot/main/Img/discordimage-1.png")
-                            embed.set_footer(text=footext+" bugün saat "+str(now_turkey.hour)+":"+str(now_turkey.minute),icon_url="https://cdn.discordapp.com/avatars/596455467585110016/b96ac044a4382f62ad36637c6021ef80.png?size=256")
+                            embed.set_footer(text=footext+" bugün saat "+str(now_turkey.hour)+":"+str(minute),icon_url="https://cdn.discordapp.com/avatars/596455467585110016/b96ac044a4382f62ad36637c6021ef80.png?size=256")
                             
                             await ctx.message.channel.send(embed=embed)
 
@@ -159,4 +163,8 @@ def sets(bot,weekly):
 
     def for_log(gid,user,channel,name):
         trtime = get()
-        print(f"[{trtime.hour}:{trtime.minute}:{trtime.second}  {get().day}/{get().month}/{get().year}] {user} created oto message protocol #{channel} city: {name} guild: {gid}")
+        if len(str(trtime.minute)) == 1:
+            minute = "0"+ str(trtime.minute)
+        else:
+            minute = trtime.minute
+        print(f"[{trtime.hour}:{minute}:{trtime.second}  {trtime.day}/{trtime.month}/{trtime.year}] {user} created oto message protocol #{channel} city: {name} guild: {gid}")

@@ -32,7 +32,7 @@ f1.close()
 
 dictofdays = {"Thursday":"Perşembe","Wednesday":"Çarşamba","Tuesday":"Salı","Monday":"Pazartesi","Sunday":"Pazar","Saturday":"Cumartesi","Friday":"Cuma"}
 ADMINID = [596455467585110016,476010467404546052]
-prefix = "-"
+prefix = "!"
 bot = commands.Bot(command_prefix=prefix)
 bot.remove_command('help')
 
